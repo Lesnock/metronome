@@ -1,0 +1,11 @@
+{
+  "name": "metronome",
+  "version": "1.0.0",
+  "description": "A metronome",
+  "main": "index.js",
+  "author": "Caio Lesnock <caio.dev@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
