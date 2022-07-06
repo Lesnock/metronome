@@ -56,7 +56,6 @@ function stop() {
 }
 
 function emitSound() {
-  // console.log(velocity)
   sound.play()
 }
 
