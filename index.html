@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metronome</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>
+        Metro<span>nome</span>
+      </h1>
+    </header>
+
+    <div class="main">
+      <div class="velocity-number">100</div>
+      <div class="velocity-bar">
+        <input type="range" max="230" min="40">
+      </div>
+    </div>
+
+    <div class="controllers">
+      <div class="play-button button">
+        <!-- Play Icon -->
+        <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+        </svg>
+      </div>
+
+      <div class="stop-button button">
+        <!-- Stop Icon -->
+        <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M18,18H6V6H18V18Z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="metronome.js"></script>
+</body>
+</html>
