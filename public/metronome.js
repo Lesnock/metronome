@@ -43,7 +43,6 @@ function getVelocityInMiliSeconds(velocity) {
 
 function play() {
   playing = true
-  console.log(getVelocityInMiliSeconds(velocity))
   timeout = setInterval(
     emitSound,
     Math.round(getVelocityInMiliSeconds(velocity))
