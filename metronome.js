@@ -25,7 +25,6 @@ function loop(timestamp) {
 function fire(timestamp) {
   lastFiredTime = timestamp
   if (playing) {
-    stopSound()
     emitSound()
   }
 }
