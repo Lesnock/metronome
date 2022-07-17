@@ -6,12 +6,29 @@ const stopButton = document.querySelector('.stop-button')
 const sound = new Audio('sound.wav')
 
 let playing = false
-let timeout = null
 let velocity = initial
+let interval = getVelocityInMiliSeconds(initial)
+let lastFiredTime = 0
 
 setInitialValue()
 addChangeListener()
 addButtonsListeners()
+requestAnimationFrame(loop)
+
+function loop(timestamp) {
+  if (timestamp - lastFiredTime >= interval) {
+    fire(timestamp)
+  }
+  requestAnimationFrame(loop)
+}
+
+function fire(timestamp) {
+  lastFiredTime = timestamp
+  if (playing) {
+    stopSound()
+    emitSound()
+  }
+}
 
 function setInitialValue() {
   bar.value = initial
@@ -30,6 +47,7 @@ function addButtonsListeners() {
 function onChangeVelocity(event) {
   const { value } = event.target
   velocity = Number(value)
+  interval = getVelocityInMiliSeconds(velocity)
   number.innerText = value
   if (playing) {
     stop()
@@ -43,15 +61,10 @@ function getVelocityInMiliSeconds(velocity) {
 
 function play() {
   playing = true
-  timeout = setInterval(
-    emitSound,
-    Math.round(getVelocityInMiliSeconds(velocity))
-  )
 }
 
 function stop() {
   playing = false
-  clearInterval(timeout)
 }
 
 function emitSound() {
